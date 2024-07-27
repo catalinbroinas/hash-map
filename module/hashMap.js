@@ -21,8 +21,34 @@ function HashMap() {
         return hashCode;
     };
 
+    // Set value for the key
+    const set = (key, value) => {
+        const index = hash(key);
+
+        // Check if index is within bounds
+        if (index < 0 || index >= capacity) {
+            throw new Error('Index is out of bound.');
+        }
+
+        // Initialize the bucket if it does not exist
+        if (!hashTable[index]) {
+            hashTable[index] = [];
+        }
+
+        // Check if the key already exists and update its value
+        for (const item of hashTable[index]) {
+            if (item.key === key) {
+                item.value = value;
+                return;
+            }
+        }
+
+        // Add new key-value pair to the bucket
+        hashTable[index].push({ key, value });
+    };
+
     return {
-        hash
+        set
     };
 }
 
