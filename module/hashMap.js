@@ -47,8 +47,27 @@ function HashMap() {
         hashTable[index].push({ key, value });
     };
 
+    // Get value of the key
+    const get = (key) => {
+        const index = hash(key);
+
+        // Check if the bucket exists before iterating
+        if (hashTable[index]) {
+            for (const item of hashTable[index]) {
+                if (item.key === key) {
+                    // Return the value if the key matches
+                    return item.value;
+                }
+            }
+        }
+
+        // Return null if the key is not found
+        return null;
+    };
+
     return {
-        set
+        set,
+        get
     };
 }
 
