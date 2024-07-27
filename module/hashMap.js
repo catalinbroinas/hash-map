@@ -1,6 +1,10 @@
 function HashMap() {
+    let capacity = 16;
+    const loadFactory = 0.8;
+    const hashTable = new Array(capacity);
+
     // Get hash code for the key
-    const hash = (key, tableSize) => {
+    const hash = (key) => {
         // Initialize hash code to 0
         let hashCode = 0;
 
@@ -10,7 +14,7 @@ function HashMap() {
         // Iterate through each element of the key
         for (let i = 0; i < key.length; i++) {
             hashCode = primeNumber * hashCode + key.charCodeAt(i);
-            hashCode = hashCode % tableSize;
+            hashCode = hashCode % capacity;
         }
 
         // Return final hash code
