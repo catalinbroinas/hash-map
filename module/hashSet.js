@@ -85,12 +85,30 @@ function HashSet() {
         }
     };
 
+    // Get an array containing all entries (keys)
+    const entries = () => {
+        const allEntries = [];
+
+        if (Array.isArray(hashTable)) {
+            hashTable.forEach(bucket => {
+                if (Array.isArray(bucket)) {
+                    bucket.forEach(item => {
+                        allEntries.push(item);
+                    });
+                }
+            });
+        }
+
+        return allEntries;
+    };
+
     return {
         set,
         has,
         remove,
         length,
-        clear
+        clear,
+        entries
     };
 }
 

@@ -124,6 +124,9 @@ players.set('Virgil');
 players.set('Jones');
 players.set('Jota');
 
+// Get all entries (keys)
+console.log(players.entries()); // Expected output: [ 'Jota', 'Jones', 'Virgil' ]
+
 // Display the initial number of keys in the hash table
 console.log(players.length()); // Expected output: 3
 
@@ -143,8 +146,14 @@ console.log(players.has('Jota'));        // Expected output: false
 // Display the initial number of keys in the hash table
 console.log(players.length()); // Expected output: 2
 
+// Get all entries (keys)
+console.log(players.entries()); // Expected output: [ 'Jones', 'Virgil' ]
+
 // Clear `players`
 players.clear();
 
 // Display the initial number of keys in the hash table
 console.log(players.length()); // Expected output: 0
+
+// Get all entries (keys)
+console.log(players.entries()); // Expected output: []
