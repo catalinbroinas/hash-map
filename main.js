@@ -116,10 +116,16 @@ console.log(test.entries());
 // Create an instance of hashSet
 const players = HashSet();
 
+// Display the initial number of keys in the hash table
+console.log(players.length()); // Expected output: 0
+
 // Add keys to the array
 players.set('Virgil');
 players.set('Jones');
 players.set('Jota');
+
+// Display the initial number of keys in the hash table
+console.log(players.length()); // Expected output: 3
 
 // Check the existence of specific keys
 console.log(players.has('Virgil'));       // Expected output: true
@@ -130,5 +136,9 @@ console.log(players.has('Salah'));        // Expected output: false
 players.remove('Jota');
 players.remove('Darwin');
 
+// Check the existence of specific keys
 console.log(players.has('Jones'));        // Expected output: true
 console.log(players.has('Jota'));        // Expected output: false
+
+// Display the initial number of keys in the hash table
+console.log(players.length()); // Expected output: 2

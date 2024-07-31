@@ -59,10 +59,26 @@ function HashSet() {
         return false;
     };
 
+    // Get the number of stored keys in the hash table
+    const length = () => {
+        let count = 0;
+
+        if (Array.isArray(hashTable)) {
+            hashTable.forEach(bucket => {
+                if (bucket) {
+                    count += bucket.length;
+                }
+            });
+        }
+
+        return count;
+    };
+
     return {
         set,
         has,
-        remove
+        remove,
+        length
     };
 }
 
