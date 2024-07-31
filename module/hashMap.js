@@ -153,6 +153,27 @@ function HashMap() {
         return allKeys;
     };
 
+    // Get an array containing all the values inside the hash table
+    const values = () => {
+        // Initialize an empty array to store all values
+        const allValues = [];
+
+        // Iterate through each bucket in the hash table
+        for (const bucket of hashTable) {
+            // Check if the bucket exists before iterating
+            if (bucket) {
+                // Iterate through each item in the bucket
+                for (const item of bucket) {
+                    // Add the values of the item to the allValues array
+                    allValues.push(item.value);
+                }
+            }
+        }
+
+        // Return the array containing all values
+        return allValues;
+    };
+
     return {
         set,
         get,
@@ -160,7 +181,8 @@ function HashMap() {
         remove,
         length,
         clear,
-        keys
+        keys,
+        values
     };
 }
 
