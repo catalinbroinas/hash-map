@@ -103,11 +103,29 @@ function HashMap() {
         return false;
     };
 
+    // Get the number of stored keys in the hash table
+    const length = () => {
+        let count = 0;
+
+        // Iterate through each bucket in the hash table
+        for (const bucket of hashTable) {
+            // Check if the bucket is not empty
+            if (bucket) {
+                // Add the number of items in the bucket to the count
+                count += bucket.length;
+            }
+        }
+
+        // Return the total number of stored keys
+        return count;
+    };
+
     return {
         set,
         get,
         has,
-        remove
+        remove,
+        length
     };
 }
 
