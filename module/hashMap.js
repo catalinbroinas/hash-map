@@ -132,13 +132,35 @@ function HashMap() {
         }
     };
 
+    // Get an array containing all the keys inside the hash table
+    const keys = () => {
+        // Initialize an empty array to store all keys
+        const allKeys = [];
+
+        // Iterate through each bucket in the hash table
+        for (const bucket of hashTable) {
+            // Check if the bucket exists before iterating
+            if (bucket) {
+                // Iterate through each item in the bucket
+                for (const item of bucket) {
+                    // Add the key of the item to the allKeys array
+                    allKeys.push(item.key);
+                }
+            }
+        }
+
+        // Return the array containing all keys
+        return allKeys;
+    };
+
     return {
         set,
         get,
         has,
         remove,
         length,
-        clear
+        clear,
+        keys
     };
 }
 

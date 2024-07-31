@@ -24,6 +24,9 @@ myHashMap.set('name', 'Klopp');
 myHashMap.set('age', 57);
 console.log(myHashMap.length()); // Expected output: 3
 
+// Get all keys
+console.log(myHashMap.keys()); // Expected output: ['team', 'name', 'age']
+
 // Retrieve updated values and new key
 console.log(myHashMap.get('name')); // Expected output: 'Klopp'
 console.log(myHashMap.get('age'));  // Expected output: 57
@@ -48,6 +51,9 @@ console.log(myHashMap.remove('age'));         // Expected output: false (key doe
 // Display the final number of keys in the hash table
 console.log(myHashMap.length()); // Expected output: 2
 
+// Get all keys
+console.log(myHashMap.keys()); // Expected output: ['team', 'name']
+
 // Clear all entries
 myHashMap.clear();
 console.log(myHashMap.length()); // Expected output: 0
@@ -55,3 +61,6 @@ console.log(myHashMap.length()); // Expected output: 0
 // Try to get removed values
 console.log(myHashMap.get('team')); // Expected output: null
 console.log(myHashMap.get('name')); // Expected output: null
+
+// Get all keys
+console.log(myHashMap.keys()); // Expected output: []
