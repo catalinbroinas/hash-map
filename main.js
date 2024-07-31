@@ -102,3 +102,12 @@ test.set('lion', 'golden');
 
 // Exceed your current load factor
 test.set('moon', 'silver');
+
+// Get all keys
+console.log(test.keys());
+
+// Get all values
+console.log(test.values());
+
+// Get all entries
+console.log(test.entries());
