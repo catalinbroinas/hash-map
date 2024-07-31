@@ -142,3 +142,9 @@ console.log(players.has('Jota'));        // Expected output: false
 
 // Display the initial number of keys in the hash table
 console.log(players.length()); // Expected output: 2
+
+// Clear `players`
+players.clear();
+
+// Display the initial number of keys in the hash table
+console.log(players.length()); // Expected output: 0

@@ -74,11 +74,23 @@ function HashSet() {
         return count;
     };
 
+    // Removes all entries in the hash table
+    const clear = () => {
+        if (Array.isArray(hashTable)) {
+            hashTable.forEach(bucket => {
+                if (bucket) {
+                    bucket.splice(0, bucket.length);
+                }
+            });
+        }
+    };
+
     return {
         set,
         has,
         remove,
-        length
+        length,
+        clear
     };
 }
 
