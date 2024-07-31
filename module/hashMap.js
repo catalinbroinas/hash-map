@@ -65,9 +65,28 @@ function HashMap() {
         return null;
     };
 
+    // Check if the key exits in the hash table
+    const has = (key) => {
+        const index = hash(key);
+
+        // Check if the bucket exists before iterating
+        if (hashTable[index]) {
+            for (const item of hashTable[index]) {
+                // Check if the key matches
+                if (item.key === key) {
+                    return true;
+                }
+            }
+        }
+
+        // Return false if the key is not found
+        return false;
+    };
+
     return {
         set,
-        get
+        get,
+        has
     };
 }
 

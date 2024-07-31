@@ -14,3 +14,7 @@ myHashMap.set('age', 57);
 
 console.log(myHashMap.get('name'));
 console.log(myHashMap.get('age'));
+
+console.log(myHashMap.has('team'));
+console.log(myHashMap.has('age'));
+console.log(myHashMap.has('nationality'));
