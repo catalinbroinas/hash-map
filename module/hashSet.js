@@ -38,9 +38,31 @@ function HashSet() {
         return (hashTable[index] && hashTable[index].includes(key)) ? true : false;
     };
 
+    // Remove the specified key
+    const remove = (key) => {
+        const index = hash(key);
+
+        // Check if the bucket exists and contains the key
+        if (hashTable[index]) {
+            // Find the index of the key in the bucket
+            const keyIndex = hashTable[index].indexOf(key);
+
+            // If the key is found, remove it
+            if (keyIndex !== -1) {
+                hashTable[index].splice(keyIndex, 1);
+                size -= 1;
+                return true;
+            }
+        }
+
+        // Key is not found
+        return false;
+    };
+
     return {
         set,
-        has
+        has,
+        remove
     };
 }
 

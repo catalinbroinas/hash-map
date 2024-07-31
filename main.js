@@ -125,3 +125,10 @@ players.set('Jota');
 console.log(players.has('Virgil'));       // Expected output: true
 console.log(players.has('Jones'));        // Expected output: true
 console.log(players.has('Salah'));        // Expected output: false
+
+// Remove the specified key
+players.remove('Jota');
+players.remove('Darwin');
+
+console.log(players.has('Jones'));        // Expected output: true
+console.log(players.has('Jota'));        // Expected output: false
