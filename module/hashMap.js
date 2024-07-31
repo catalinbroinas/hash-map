@@ -120,12 +120,25 @@ function HashMap() {
         return count;
     };
 
+    // Removes all entries in the hash table
+    const clear = () => {
+        // Iterate through each bucket in the hash table
+        for (const bucket of hashTable) {
+            // Check if the bucket exists before attempting to modify it
+            if (bucket) {
+                // Remove all entries from the bucket
+                bucket.splice(0, bucket.length);
+            }
+        }
+    };
+
     return {
         set,
         get,
         has,
         remove,
-        length
+        length,
+        clear
     };
 }
 

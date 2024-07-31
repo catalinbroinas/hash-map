@@ -47,3 +47,11 @@ console.log(myHashMap.remove('age'));         // Expected output: false (key doe
 
 // Display the final number of keys in the hash table
 console.log(myHashMap.length()); // Expected output: 2
+
+// Clear all entries
+myHashMap.clear();
+console.log(myHashMap.length()); // Expected output: 0
+
+// Try to get removed values
+console.log(myHashMap.get('team')); // Expected output: null
+console.log(myHashMap.get('name')); // Expected output: null
