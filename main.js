@@ -30,6 +30,9 @@ console.log(myHashMap.keys()); // Expected output: ['team', 'name', 'age']
 // Get all values
 console.log(myHashMap.values()); // Expected output: ['Liverpool', 'Klopp', 57]
 
+// Get all entries
+console.log(myHashMap.entries()); // Expected output: [ [ 'name', 'Klopp' ], [ 'team', 'Liverpool' ], [ 'age', 57 ] ]
+
 // Retrieve updated values and new key
 console.log(myHashMap.get('name')); // Expected output: 'Klopp'
 console.log(myHashMap.get('age'));  // Expected output: 57
@@ -60,6 +63,9 @@ console.log(myHashMap.keys()); // Expected output: ['team', 'name']
 // Get all values
 console.log(myHashMap.values()); // Expected output: ['Liverpool', 'Klopp']
 
+// Get all entries
+console.log(myHashMap.entries()); // Expected output: [ [ 'name', 'Klopp' ], [ 'team', 'Liverpool' ]]
+
 // Clear all entries
 myHashMap.clear();
 console.log(myHashMap.length()); // Expected output: 0
@@ -73,3 +79,6 @@ console.log(myHashMap.keys()); // Expected output: []
 
 // Get all values
 console.log(myHashMap.values()); // Expected output: []
+
+// Get all entries
+console.log(myHashMap.entries()); // Expected output: []

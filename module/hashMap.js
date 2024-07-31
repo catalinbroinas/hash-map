@@ -1,6 +1,7 @@
 function HashMap() {
     let capacity = 16;
-    const loadFactory = 0.8;
+    const loadFactor = 0.8;
+    let size = 0;
     const hashTable = new Array(capacity);
 
     // Get hash code for the key
@@ -19,6 +20,25 @@ function HashMap() {
 
         // Return final hash code
         return hashCode;
+    };
+
+    // Resize the hash table to a new capacity
+    const resize = () => {
+        const oldTable = hashTable;
+        capacity *= 2;
+        size = 0;
+
+        // Create a new hash table with the updated capacity
+        hashTable = new Array(capacity);
+
+        // Rehash all entries from the old table to the new table
+        for (const bucket of oldTable) {
+            if (bucket) {
+                for (const item of bucket) {
+                    set(item.key, item.value);
+                }
+            }
+        }
     };
 
     // Set value for the key
@@ -45,6 +65,12 @@ function HashMap() {
 
         // Add new key-value pair to the bucket
         hashTable[index].push({ key, value });
+        size += 1;
+
+        // Check if resize is needed
+        if (size > capacity * loadFactor) {
+            resize();
+        }
     };
 
     // Get value of the key
@@ -94,6 +120,7 @@ function HashMap() {
                 if (item.key === key) {
                     // Remove the item by splicing it out of the array
                     hashTable[index].splice(i, 1);
+                    size -= 1;
                     return true;
                 }
             }
@@ -130,6 +157,7 @@ function HashMap() {
                 bucket.splice(0, bucket.length);
             }
         }
+        size = 0;
     };
 
     // Get an array containing all the keys inside the hash table
@@ -174,6 +202,27 @@ function HashMap() {
         return allValues;
     };
 
+    // Get an array containing all entries ([key, value] pair)
+    const entries = () => {
+        // Initialize an empty array to store all entries
+        const allEntries = [];
+
+        // Iterate through each bucket in the hash table
+        for (const bucket of hashTable) {
+            // Check if the bucket exists before iterating
+            if (bucket) {
+                // Iterate through each item in the bucket
+                for (const item of bucket) {
+                    // Add the entries of the item to the allEntries array
+                    allEntries.push([item.key, item.value]);
+                }
+            }
+        }
+
+        // Return the array containing all entries
+        return allEntries;
+    };
+
     return {
         set,
         get,
@@ -182,7 +231,8 @@ function HashMap() {
         length,
         clear,
         keys,
-        values
+        values,
+        entries
     };
 }
 
