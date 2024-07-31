@@ -201,7 +201,9 @@ function HashMap() {
         clear,
         keys,
         values,
-        entries
+        entries,
+        hash,
+        resize
     };
 }
 

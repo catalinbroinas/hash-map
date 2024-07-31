@@ -1,4 +1,5 @@
 import { HashMap } from "./module/hashMap.js";
+import { HashSet } from "./module/hashSet.js";
 
 // Create an instance of HashMap
 const myHashMap = HashMap();
@@ -111,3 +112,16 @@ console.log(test.values());
 
 // Get all entries
 console.log(test.entries());
+
+// Create an instance of hashSet
+const players = HashSet();
+
+// Add keys to the array
+players.set('Virgil');
+players.set('Jones');
+players.set('Jota');
+
+// Check the existence of specific keys
+console.log(players.has('Virgil'));       // Expected output: true
+console.log(players.has('Jones'));        // Expected output: true
+console.log(players.has('Salah'));        // Expected output: false
