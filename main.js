@@ -157,3 +157,24 @@ console.log(players.length()); // Expected output: 0
 
 // Get all entries (keys)
 console.log(players.entries()); // Expected output: []
+
+// Test resize functionality
+players.set('Alisson');
+players.set('Virgil van Dijk');
+players.set('Mohamed Salah');
+players.set('Sadio Mané');
+players.set('Roberto Firmino');
+players.set('Andrew Robertson');
+players.set('Trent Alexander-Arnold');
+players.set('Jordan Henderson');
+players.set('Fabinho');
+players.set('Naby Keïta');
+players.set('James Milner');
+players.set('Xherdan Shaqiri');
+players.set('Diogo Jota');
+
+// Get all entries (keys)
+console.log(players.entries());
+
+// Display the initial number of keys in the hash table
+console.log(players.length()); // Expected output: 13
