@@ -2,7 +2,7 @@ function HashMap() {
     let capacity = 16;
     const loadFactor = 0.8;
     let size = 0;
-    const hashTable = new Array(capacity);
+    let hashTable = new Array(capacity);
 
     // Get hash code for the key
     const hash = (key) => {
