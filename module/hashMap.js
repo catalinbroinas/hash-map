@@ -6,19 +6,15 @@ function HashMap() {
 
     // Get hash code for the key
     const hash = (key) => {
-        // Initialize hash code to 0
         let hashCode = 0;
-
-        // Prime number for hash calculation
         const primeNumber = 31;
 
-        // Iterate through each element of the key
+        // Compute hash code based on key characters
         for (let i = 0; i < key.length; i++) {
             hashCode = primeNumber * hashCode + key.charCodeAt(i);
             hashCode = hashCode % capacity;
         }
 
-        // Return final hash code
         return hashCode;
     };
 
@@ -45,17 +41,12 @@ function HashMap() {
     const set = (key, value) => {
         const index = hash(key);
 
-        // Check if index is within bounds
-        if (index < 0 || index >= capacity) {
-            throw new Error('Index is out of bound.');
-        }
-
         // Initialize the bucket if it does not exist
         if (!hashTable[index]) {
             hashTable[index] = [];
         }
 
-        // Check if the key already exists and update its value
+        // Update value if the key already exist
         for (const item of hashTable[index]) {
             if (item.key === key) {
                 item.value = value;
@@ -77,17 +68,16 @@ function HashMap() {
     const get = (key) => {
         const index = hash(key);
 
-        // Check if the bucket exists before iterating
+        // Check if bucket exists and find key
         if (hashTable[index]) {
             for (const item of hashTable[index]) {
                 if (item.key === key) {
-                    // Return the value if the key matches
                     return item.value;
                 }
             }
         }
 
-        // Return null if the key is not found
+        // Key is not found
         return null;
     };
 
@@ -95,17 +85,16 @@ function HashMap() {
     const has = (key) => {
         const index = hash(key);
 
-        // Check if the bucket exists before iterating
+        // Check if bucket exists and find key
         if (hashTable[index]) {
             for (const item of hashTable[index]) {
-                // Check if the key matches
                 if (item.key === key) {
                     return true;
                 }
             }
         }
 
-        // Return false if the key is not found
+        // Key is not found
         return false;
     };
 
@@ -113,12 +102,10 @@ function HashMap() {
     const remove = (key) => {
         const index = hash(key);
 
-        // Check if the bucket exists before iterating
+        // Check if bucket exists and find key
         if (hashTable[index]) {
-            // Iterate through the bucket to find the item with the specified key
             for (const [i, item] of hashTable[index].entries()) {
                 if (item.key === key) {
-                    // Remove the item by splicing it out of the array
                     hashTable[index].splice(i, 1);
                     size -= 1;
                     return true;
@@ -126,7 +113,7 @@ function HashMap() {
             }
         }
 
-        // Return false if the key is not found
+        // Key is not found
         return false;
     };
 
@@ -134,92 +121,74 @@ function HashMap() {
     const length = () => {
         let count = 0;
 
-        // Iterate through each bucket in the hash table
+        // Count entries in each bucket
         for (const bucket of hashTable) {
-            // Check if the bucket is not empty
             if (bucket) {
-                // Add the number of items in the bucket to the count
                 count += bucket.length;
             }
         }
 
-        // Return the total number of stored keys
         return count;
     };
 
     // Removes all entries in the hash table
     const clear = () => {
-        // Iterate through each bucket in the hash table
+        // Empty each bucket
         for (const bucket of hashTable) {
-            // Check if the bucket exists before attempting to modify it
             if (bucket) {
-                // Remove all entries from the bucket
                 bucket.splice(0, bucket.length);
             }
         }
+
+        // Reset size
         size = 0;
     };
 
     // Get an array containing all the keys inside the hash table
     const keys = () => {
-        // Initialize an empty array to store all keys
         const allKeys = [];
 
-        // Iterate through each bucket in the hash table
+        // Collect keys from each bucket
         for (const bucket of hashTable) {
-            // Check if the bucket exists before iterating
             if (bucket) {
-                // Iterate through each item in the bucket
                 for (const item of bucket) {
-                    // Add the key of the item to the allKeys array
                     allKeys.push(item.key);
                 }
             }
         }
 
-        // Return the array containing all keys
         return allKeys;
     };
 
     // Get an array containing all the values inside the hash table
     const values = () => {
-        // Initialize an empty array to store all values
         const allValues = [];
 
-        // Iterate through each bucket in the hash table
+        // Collect values from each bucket
         for (const bucket of hashTable) {
-            // Check if the bucket exists before iterating
             if (bucket) {
-                // Iterate through each item in the bucket
                 for (const item of bucket) {
-                    // Add the values of the item to the allValues array
                     allValues.push(item.value);
                 }
             }
         }
 
-        // Return the array containing all values
         return allValues;
     };
 
     // Get an array containing all entries ([key, value] pair)
     const entries = () => {
-        // Initialize an empty array to store all entries
         const allEntries = [];
 
-        // Iterate through each bucket in the hash table
+        // Collect [key, value] pairs from each bucket
         for (const bucket of hashTable) {
-            // Check if the bucket exists before iterating
             if (bucket) {
-                // Iterate through each item in the bucket
                 for (const item of bucket) {
-                    // Add the entries of the item to the allEntries array
                     allEntries.push([item.key, item.value]);
                 }
             }
         }
 
-        // Return the array containing all entries
         return allEntries;
     };
 
