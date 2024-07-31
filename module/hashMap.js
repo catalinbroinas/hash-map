@@ -83,10 +83,31 @@ function HashMap() {
         return false;
     };
 
+    // Remove entry with the specified key
+    const remove = (key) => {
+        const index = hash(key);
+
+        // Check if the bucket exists before iterating
+        if (hashTable[index]) {
+            // Iterate through the bucket to find the item with the specified key
+            for (const [i, item] of hashTable[index].entries()) {
+                if (item.key === key) {
+                    // Remove the item by splicing it out of the array
+                    hashTable[index].splice(i, 1);
+                    return true;
+                }
+            }
+        }
+
+        // Return false if the key is not found
+        return false;
+    };
+
     return {
         set,
         get,
-        has
+        has,
+        remove
     };
 }
 
