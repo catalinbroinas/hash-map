@@ -1,3 +1,6 @@
+// HashSet module for managing unique keys with array-based buckets.
+// We used the different array manipulation methods to practice array manipulation.
+
 import { HashMap } from "./hashMap.js";
 
 function HashSet() {

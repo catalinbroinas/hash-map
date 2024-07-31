@@ -1,5 +1,13 @@
+// ========================
+// This file contains tests for the `HashMap` and `HashSet` modules.
+// ========================
+
 import { HashMap } from "./module/hashMap.js";
 import { HashSet } from "./module/hashSet.js";
+
+// ========================
+// HashMap Tests
+// ========================
 
 // Create an instance of HashMap
 const myHashMap = HashMap();
@@ -84,8 +92,11 @@ console.log(myHashMap.values()); // Expected output: []
 // Get all entries
 console.log(myHashMap.entries()); // Expected output: []
 
-
+// ========================
+// HashMap Tests
 // Odin test
+// ========================
+
 const test = HashMap();
 
 test.set('apple', 'red');
@@ -112,6 +123,10 @@ console.log(test.values());
 
 // Get all entries
 console.log(test.entries());
+
+// ========================
+// HashSet Tests
+// ========================
 
 // Create an instance of hashSet
 const players = HashSet();

@@ -1,3 +1,6 @@
+// HashMap module for managing key-value pairs with array-based buckets.
+// We used the different array manipulation methods to practice array manipulation.
+
 function HashMap() {
     let capacity = 16;
     const loadFactor = 0.8;
